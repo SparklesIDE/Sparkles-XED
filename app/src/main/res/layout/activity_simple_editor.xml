@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_fab_play" 
-        android:background="@drawable/compilerr"
+        app:srcCompat="@drawable/ic_play" 
+        android:background="@drawable/ic_compiler" 
         app:backgroundTint="?colorPrimary"
         android:tint="?colorSurface"
         android:contentDescription="Play" />
