@@ -1,6 +1,7 @@
 package com.rk.xededitor.terminal
 
 import android.app.Activity
+import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import com.blankj.utilcode.util.ClipboardUtils
@@ -55,31 +56,32 @@ class TerminalBackEnd(val activity:Terminal): TerminalViewClient, TerminalSessio
     }
 
     override fun logError(tag: String?, message: String?) {
-
+        Log.e(tag.toString(),message.toString())
     }
 
     override fun logWarn(tag: String?, message: String?) {
-
+        Log.w(tag.toString(),message.toString())
     }
 
     override fun logInfo(tag: String?, message: String?) {
-
+        Log.i(tag.toString(),message.toString())
     }
 
     override fun logDebug(tag: String?, message: String?) {
-
+        Log.d(tag.toString(),message.toString())
     }
 
     override fun logVerbose(tag: String?, message: String?) {
-
+        Log.v(tag.toString(),message.toString())
     }
 
     override fun logStackTraceWithMessage(tag: String?, message: String?, e: Exception?) {
-
+        Log.e(tag.toString(),message.toString())
+        e?.printStackTrace()
     }
 
     override fun logStackTrace(tag: String?, e: Exception?) {
-
+        e?.printStackTrace()
     }
 
     override fun onScale(scale: Float): Float {
@@ -95,11 +97,11 @@ class TerminalBackEnd(val activity:Terminal): TerminalViewClient, TerminalSessio
     }
 
     override fun shouldEnforceCharBasedInput(): Boolean {
-        return true
+        return SettingsData.getBoolean(Keys.FORCE_CHAR,true)
     }
 
     override fun shouldUseCtrlSpaceWorkaround(): Boolean {
-        return false
+        return SettingsData.getBoolean(Keys.CTRL_WORKAROUND,false)
     }
 
     override fun isTerminalViewSelected(): Boolean {
